@@ -1,0 +1,435 @@
+
+:root {
+    
+    --default-font: 'Roboto', sans-serif; 
+    --heading-font: 'Montserrat', sans-serif; 
+    --nav-font: 'Poppins', sans-serif; 
+
+    
+    --background-color: #f0f2f5;
+    --default-color: #4a4a4a; 
+    --heading-color: #2c3e50; 
+    --accent-color: #3498db; 
+    --surface-color: #ffffff; 
+    --contrast-color: #ffffff; 
+
+    
+    --nav-color: #e0e0e0; 
+    --nav-hover-color: #3498db; 
+    --nav-mobile-background-color: #f0f2f5; 
+    --nav-dropdown-background-color: #ffffff;
+    --nav-dropdown-color: #4a4a4a;
+    --nav-dropdown-hover-color: #3498db;
+}
+
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font) !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.03em !important; 
+    margin-bottom: 0.8em !important; 
+    color: var(--heading-color) !important; 
+}
+
+h1 {
+    font-size: 3.2em !important;
+    font-weight: 800 !important; 
+    text-transform: uppercase !important;
+    color: #1a1a1a !important; 
+}
+
+h2 {
+    font-size: 2.4em !important;
+    font-weight: 700 !important;
+    color: #2c3e50 !important;
+}
+
+h3 {
+    font-size: 1.9em !important;
+    font-weight: 600 !important;
+    color: #4a627d !important;
+    letter-spacing: 0.02em !important;
+}
+
+h4 {
+    font-size: 1.5em !important;
+    font-weight: 500 !important;
+    color: #6c8099 !important;
+}
+
+h5 {
+    font-size: 1.2em !important;
+    font-weight: 500 !important;
+    color: #8fa5bc !important;
+}
+
+h6 {
+    font-size: 1em !important;
+    font-weight: 400 !important;
+    color: #b0c0d4 !important;
+    letter-spacing: 0.01em !important;
+}
+
+
+p {
+    line-height: 1.6 !important;
+    margin-bottom: 1.2em !important;
+    color: var(--default-color) !important; 
+    font-family: var(--default-font) !important;
+}
+
+
+
+.btn {
+    padding: 12px 28px !important;
+    border-radius: 25px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15) !important;
+    font-size: 0.9em !important;
+    letter-spacing: 0.05em !important;
+}
+
+
+.btn-primary {
+    background-color: var(--accent-color) !important; 
+    color: var(--contrast-color) !important; 
+}
+
+.btn-primary:hover {
+    background-color: color-mix(in srgb, var(--accent-color), black 15%) !important; 
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.btn-primary:active {
+    background-color: color-mix(in srgb, var(--accent-color), black 25%) !important;
+    transform: translateY(0) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+.btn-secondary {
+    background-color: #2ecc71 !important; 
+    color: var(--contrast-color) !important;
+}
+
+.btn-secondary:hover {
+    background-color: color-mix(in srgb, #2ecc71, black 15%) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.btn-secondary:active {
+    background-color: color-mix(in srgb, #2ecc71, black 25%) !important;
+    transform: translateY(0) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+a {
+    color: var(--accent-color) !important; 
+    text-decoration: none !important;
+    transition: color 0.3s ease, text-decoration 0.3s ease !important;
+}
+
+a:hover {
+    color: color-mix(in srgb, var(--accent-color), black 15%) !important; 
+    text-decoration: underline !important;
+}
+
+a:active {
+    color: color-mix(in srgb, var(--accent-color), black 25%) !important;
+}
+
+
+
+.resume-item, .portfolio-item, .contact .info-item { 
+    background-color: var(--surface-color) !important;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 85%) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08) !important;
+    padding: 30px !important;
+    margin-bottom: 35px !important;
+    transition: all 0.4s ease-in-out !important;
+}
+
+.resume-item:hover, .portfolio-item:hover, .contact .info-item:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
+    transform: translateY(-5px) !important;
+}
+
+
+.skills .progress-bar-wrap {
+    border-radius: 6px !important;
+    overflow: hidden !important;
+}
+
+
+
+#header { 
+    background-color: #2c3e50 !important; 
+    border-right: none !important;
+    box-shadow: 3px 0 15px rgba(0, 0, 0, 0.3) !important; 
+}
+
+
+.navmenu {
+    padding: 0 !important;
+}
+
+
+#navmenu ul li a {
+    color: var(--nav-color) !important; 
+    background: transparent !important;
+    height: auto !important;
+    padding: 12px 18px !important;
+    border-radius: 8px !important;
+    margin-bottom: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    font-family: var(--nav-font) !important;
+    font-weight: 500 !important;
+}
+
+
+#navmenu ul li a:hover,
+#navmenu ul li.active > a, 
+#navmenu ul li:hover > a { 
+    color: var(--contrast-color) !important; 
+    background: var(--nav-hover-color) !important; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+
+#navmenu ul li a i.navicon {
+    font-size: 22px !important;
+    margin-right: 12px !important;
+    color: var(--nav-color) !important; 
+}
+
+#navmenu ul li a:hover i.navicon,
+#navmenu ul li.active i.navicon {
+    color: var(--contrast-color) !important; 
+}
+
+
+.skills .progress {
+    height: 18px !important; 
+    background-color: color-mix(in srgb, var(--default-color), transparent 85%) !important;
+    border-radius: 6px !important;
+    margin-bottom: 25px !important; 
+    overflow: visible !important; 
+    position: relative; 
+}
+
+
+.skills .progress-bar {
+    background-color: var(--accent-color) !important;
+    border-radius: 6px !important;
+    height: 18px !important; 
+    transition: width 0.8s ease-in-out !important;
+    color: var(--contrast-color) !important; 
+    text-align: right !important; 
+    padding-right: 10px !important; 
+    font-size: 0.9em !important; 
+    line-height: 18px !important; 
+    font-weight: 500 !important;
+}
+
+
+.skills .progress .skill {
+    position: absolute; 
+    left: 10px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    color: var(--heading-color) !important;
+    font-weight: 600 !important;
+    font-size: 0.9em !important; 
+    letter-spacing: 0.02em !important;
+    font-family: var(--heading-font) !important;
+    margin: 0 !important; 
+}
+
+
+.skills .progress .skill .val {
+    display: none !important; 
+}
+
+
+
+
+#scroll-top {
+    background-color: var(--accent-color) !important; 
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    right: 25px !important;
+    bottom: 25px !important;
+    font-size: 26px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.4s ease-in-out !important;
+}
+
+#scroll-top:hover {
+    background-color: color-mix(in srgb, var(--accent-color), black 15%) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+#scroll-top i {
+    color: var(--contrast-color) !important; 
+}
+/*Papildoma užduotis   */
+ 
+h3.my-custom-heading {
+    color: var(--heading-color) !important;
+    font-family: var(--heading-font) !important;
+    font-size: 1.6em !important;
+    margin-top: 2.5em !important;
+    margin-bottom: 0.8em !important;
+    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%) !important;
+    padding-bottom: 0.3em !important;
+}
+
+
+
+
+.custom-ordered-list {
+    list-style: none; 
+    counter-reset: custom-counter;
+    padding-left: 0 !important; 
+    margin-bottom: 2em !important;
+}
+
+.custom-ordered-list li {
+    counter-increment: custom-counter; 
+    position: relative;
+    padding: 8px 0 8px 35px; 
+    margin-bottom: 5px;
+    font-size: 1.05em;
+    color: var(--default-color) !important;
+    border-bottom: 1px dashed color-mix(in srgb, var(--default-color), transparent 95%) !important;
+}
+
+.custom-ordered-list li:last-child {
+    border-bottom: none !important; 
+}
+
+.custom-ordered-list li::before {
+    content: counter(custom-counter) "."; 
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--accent-color) !important; 
+    color: var(--contrast-color) !important; 
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700 !important;
+    font-size: 0.8em;
+}
+
+
+.custom-ordered-list ol { 
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding-left: 20px !important;
+    list-style: decimal; 
+    color: var(--default-color) !important;
+}
+
+.custom-ordered-list ol li { 
+    padding: 5px 0 5px 0;
+    border-bottom: none !important; 
+    font-size: 0.95em;
+}
+
+.custom-ordered-list ol li::before { 
+    content: none !important;
+}
+
+
+
+.custom-unordered-list {
+    list-style: none; 
+    padding-left: 0 !important;
+    margin-bottom: 2em !important;
+}
+
+.custom-unordered-list li {
+    position: relative;
+    padding: 8px 0 8px 30px; 
+    margin-bottom: 5px;
+    font-size: 1.05em;
+    color: var(--default-color) !important;
+    border-bottom: 1px dashed color-mix(in srgb, var(--default-color), transparent 95%) !important;
+}
+
+.custom-unordered-list li:last-child {
+    border-bottom: none !important;
+}
+
+.custom-unordered-list li::before {
+    content: "\2022"; 
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em; 
+    color: var(--accent-color) !important; 
+    font-weight: bold;
+
+ 
+}
+.services-table {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: 2em;
+    margin-bottom: 4em;
+    background-color: var(--surface-color) !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); 
+    border-radius: 12px; 
+    overflow: hidden; 
+}
+
+
+.services-table thead th {
+    background-color: var(--heading-color) !important; 
+    color: var(--contrast-color) !important; 
+    padding: 15px !important;
+    text-align: center !important; 
+    font-family: var(--heading-font) !important;
+    font-size: 1.1em !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    border-bottom: 3px solid var(--accent-color) !important; 
+}
+
+
+.services-table tbody td {
+    padding: 15px !important; 
+    text-align: center !important; 
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%) !important;
+    color: var(--default-color) !important;
+    font-size: 0.95em !important;
+}
+
+.services-table tbody tr:nth-child(odd) {
+    background-color: color-mix(in srgb, var(--surface-color), transparent 5%) !important; 
+}
+
+
+.services-table tbody tr:hover {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%) !important; 
+    transition: background-color 0.3s ease-in-out !important;
+    cursor: pointer;
+}
