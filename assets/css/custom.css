@@ -424,12 +424,12 @@ h3.my-custom-heading {
 }
 
 .services-table tbody tr:nth-child(odd) {
-    background-color: color-mix(in srgb, var(--surface-color), transparent 5%) !important; 
+    background-color: color-mix(in srgb, var(--surface-color), transparent 5%) !important; /* Šiek tiek tamsesnis fonas nelyginėms eilutėms */
 }
 
 
 .services-table tbody tr:hover {
-    background-color: color-mix(in srgb, var(--accent-color), transparent 90%) !important; 
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%) !important; /* Šviesesnė akcentinė spalva užvedus */
     transition: background-color 0.3s ease-in-out !important;
     cursor: pointer;
 }
