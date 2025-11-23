@@ -13,6 +13,12 @@
 
 
 
+<script>
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('reduced-motion');
+  }
+</script>
+
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -21,6 +27,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -42,6 +49,17 @@
 </head>
 
 <body class="index-page">
+
+  <div id="preloader">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+
+<div class="social-links">
+  <a href="#"><i class="bi bi-twitter-x"></i></a>
+  …
+</div>
 
   <header id="header" class="header d-flex flex-column justify-content-center">
 
@@ -173,7 +191,6 @@
 </div>
 
 </section><!-- /About Section -->
-
 
 
 
@@ -501,6 +518,17 @@
 
 
     <!-- Services Section -->
+
+<section id="services" class="services section">
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Mano Paslaugos</h2>
+    <p>Detalizuotos paslaugos ir kainos...</p>
+  </div>
+
+  <div class="container" data-aos="fade-up" data-aos-delay="200">
+    <table class="services-table"> … </table>
+  </div>
+</section>
 
 <!-- ... Po vaizdo ir garso įrašų jūsų Services sekcijoje ... -->
 
@@ -830,8 +858,12 @@
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+  
+
+
+
+  
+  
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -847,6 +879,40 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+
+
+
+<div id="motion-toggle" style="position:fixed;
+     bottom:10px; left:10px; background:#fff;
+     border:1px solid #ccc; padding:8px;
+     border-radius:4px; font-family:sans-serif;
+     z-index:10000;">
+  <label>
+    <input type="checkbox" id="toggleReduced">
+     Reduced Motion 
+  </label>
+</div>
+
+
+<script>
+  const checkbox = document.getElementById('toggleReduced');
+  
+  if (localStorage.getItem('reduced') === 'true') {
+    document.documentElement.classList.add('reduced-motion');
+    checkbox.checked = true;
+  }
+  checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+      document.documentElement.classList.add('reduced-motion');
+      localStorage.setItem('reduced', 'true');
+    } else {
+      document.documentElement.classList.remove('reduced-motion');
+      localStorage.setItem('reduced', 'false');
+    }
+  });
+</script>
+
 
 </body>
 
