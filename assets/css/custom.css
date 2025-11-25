@@ -511,13 +511,8 @@ h3.my-custom-heading {
 }
 
 
-body {
-  background: #a9d8e0  !important;            
-  color: #151515  !important;                
-  font-family: 'Segoe UI', sans-serif !important;
-  line-height: 1.8 !important;
-  margin: 0 !important;
-}
+
+
 a { color: #ff00e1; }
 a:hover { color: #d957c5 !important; text-decoration: underline !important; }
 
