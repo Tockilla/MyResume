@@ -650,3 +650,309 @@ a:hover { color: #d957c5 !important; text-decoration: underline !important; }
   50%  { transform: rotate(180deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* kai sidebar atidarytas */
+.sidebar.open + .main-content {
+  margin-left: 250px;
+  transition: margin-left .3s ease;
+}
+
+#sidebar.active ~ #content {
+  margin-left: 250px;
+}
+
+#sidebar {
+  position: fixed;
+  z-index: 1000;
+}
+#contact-form, #contact-form * {
+  position: relative;
+  z-index: 1;
+}
+
+body, html {
+  height: 100% !important;
+  margin: 0 !important;
+}
+
+body {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+}
+
+#contact-form, #form-results, #average-result {
+  width: 100% !important;
+  max-width: 400px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+#contact-form {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  padding: 20px !important;
+}
+
+.form-row {
+  margin-bottom: 15px !important;
+}
+
+.form-row label,
+.form-row input,
+.form-row .range-value {
+  width: 100% !important;
+}
+
+button[type="submit"] {
+  width: 100% !important;
+  padding: 10px !important;
+  font-size: 1rem !important;
+  cursor: pointer !important;
+}
+
+#form-results, #average-result {
+  text-align: center !important;
+  margin: 20px auto !important;
+}
+
+#popup-message {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: #fff !important;
+  padding: 15px 25px !important;
+  border: 1px solid #888 !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+button.invalid {
+  border: 2px solid red !important;
+  background-color: #ffe6e6 !important;
+}
+
+#average-result {
+  text-align: center !important;
+  margin: 20px auto !important;
+  position: relative !important;
+}
+
+#popup-message {
+  display: none; /* valdo JS */
+  margin-top: 10px !important;
+  padding: 10px 15px !important;
+  background: #e6ffe6 !important;
+  border: 1px solid #4CAF50 !important;
+  color: #256029 !important;
+  border-radius: 4px !important;
+  font-weight: bold !important;
+}
+#popup-message.visible {
+  display: block !important;
+}
+
+
+#submit-btn:disabled {
+  border: 2px solid red !important;
+  background-color: #ffe6e6 !important;
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+}
+
+.invalid {
+  border: 2px solid red !important;
+}
+
+#submit-btn:disabled {
+  border: 2px solid red !important;
+  background-color: #ffe6e6 !important;
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+}
+
+#popup-message {
+  display: none !important;
+  position: relative !important;
+  left: 20px !important;
+  margin-top: 10px !important;
+  padding: 10px 15px !important;
+  background: #e6ffe6 !important;
+  border: 1px solid #4CAF50 !important;
+  color: #256029 !important;
+  border-radius: 4px !important;
+  font-weight: bold !important;
+}
+
+#popup-message.visible {
+  display: block !important;
+}
+
+/* kai sidebar atidarytas */
+.sidebar.open + .main-content {
+  margin-left: 250px;
+  transition: margin-left .3s ease;
+}
+
+#sidebar.active ~ #content {
+  margin-left: 250px;
+}
+
+#sidebar {
+  position: fixed;
+  z-index: 1000;
+}
+#contact-form, #contact-form * {
+  position: relative;
+  z-index: 1;
+}
+
+body, html {
+  height: 100% !important;
+  margin: 0 !important;
+}
+
+body {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column !important;
+}
+
+#contact-form, #form-results, #average-result {
+  width: 100% !important;
+  max-width: 400px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+#contact-form {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  padding: 20px !important;
+}
+
+.form-row {
+  margin-bottom: 15px !important;
+}
+
+.form-row label,
+.form-row input,
+.form-row .range-value {
+  width: 100% !important;
+}
+
+button[type="submit"] {
+  width: 100% !important;
+  padding: 10px !important;
+  font-size: 1rem !important;
+  cursor: pointer !important;
+}
+
+#form-results, #average-result {
+  text-align: center !important;
+  margin: 20px auto !important;
+}
+
+#popup-message {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  background: #fff !important;
+  padding: 15px 25px !important;
+  border: 1px solid #888 !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
+button.invalid {
+  border: 2px solid red !important;
+  background-color: #ffe6e6 !important;
+}
+
+#average-result {
+  text-align: center !important;
+  margin: 20px auto !important;
+  position: relative !important;
+}
+
+#popup-message {
+  display: none; /* valdo JS */
+  margin-top: 10px !important;
+  padding: 10px 15px !important;
+  background: #e6ffe6 !important;
+  border: 1px solid #4CAF50 !important;
+  color: #256029 !important;
+  border-radius: 4px !important;
+  font-weight: bold !important;
+}
+#popup-message.visible {
+  display: block !important;
+}
+
+
+#submit-btn:disabled {
+  border: 2px solid red !important;
+  background-color: #ffe6e6 !important;
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+}
+
+.invalid {
+  border: 2px solid red !important;
+}
+
+#submit-btn:disabled {
+  border: 2px solid red !important;
+  background-color: #ffe6e6 !important;
+  cursor: not-allowed !important;
+  opacity: 0.6 !important;
+}
+
+#popup-message {
+  display: none !important;
+  position: relative !important;
+  left: 20px !important;
+  margin-top: 10px !important;
+  padding: 10px 15px !important;
+  background: #e6ffe6 !important;
+  border: 1px solid #4CAF50 !important;
+  color: #256029 !important;
+  border-radius: 4px !important;
+  font-weight: bold !important;
+}
+
+#popup-message.visible {
+  display: block !important;
+}
+
+#average-result {
+  font-weight: bold !important;
+  margin-right: 10px !important;  /* tarpas tarp vidurkio ir popup */
+}
+
+#popup-message {
+  display: none !important;
+  margin: 0 !important;
+  padding: 5px 10px !important;
+  background: #e6ffe6 !important;
+  border: 1px solid #4CAF50 !important;
+  color: #256029 !important;
+  border-radius: 4px !important;
+  font-weight: normal !important;
+}
+
+#popup-message.visible {
+  display: inline-block !important;
+}

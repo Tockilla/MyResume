@@ -746,74 +746,57 @@
         <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
       </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade" data-aos-delay="100">
+    <form id="contact-form">
+  <div class="form-row">
+    <label for="first-name">Vardas</label>
+    <input type="text" id="first-name" name="firstName" required>
+  </div>
+  <div class="form-row">
+    <label for="last-name">Pavardė</label>
+    <input type="text" id="last-name" name="lastName" required>
+  </div>
+  <div class="form-row">
+    <label for="email">El. paštas</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+  <div class="form-row">
+    <label for="phone">Telefono numeris</label>
+    <input type="tel" id="phone" name="phone">
+  </div>
+  <div class="form-row">
+    <label for="address">Adresas</label>
+    <input type="text" id="address" name="address">
+  </div>
+  <!-- 3 klausimų slideriai -->
+  <div class="form-row">
+    <label for="q1">Klausimas 1 (1-10)</label>
+    <input type="range" id="q1" name="q1" min="1" max="10" value="5">
+    <span class="range-value" id="q1-val">5</span>
+  </div>
+  <div class="form-row">
+    <label for="q2">Klausimas 2 (1-10)</label>
+    <input type="range" id="q2" name="q2" min="1" max="10" value="5">
+    <span class="range-value" id="q2-val">5</span>
+  </div>
+  <div class="form-row">
+    <label for="q3">Klausimas 3 (1-10)</label>
+    <input type="range" id="q3" name="q3" min="1" max="10" value="5">
+    <span class="range-value" id="q3-val">5</span>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+<!-- Čia bus atvaizduojami rezultatai ir popup -->
 
-        <div class="row gy-4">
 
-          <div class="col-lg-4">
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-              <i class="bi bi-geo-alt flex-shrink-0"></i>
-              <div>
-                <h3>Address</h3>
-                <p>A108 Adam Street, New York, NY 535022</p>
-              </div>
-            </div><!-- End Info Item -->
+<div id="form-results"></div>
+<div style="display: flex; align-items: center;">
+  <div id="average-result"></div>
+  <div id="popup-message" class="hidden">Duomenys pateikti sėkmingai!</div>
+</div>
 
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-              <i class="bi bi-telephone flex-shrink-0"></i>
-              <div>
-                <h3>Call Us</h3>
-                <p>+1 5589 55488 55</p>
-              </div>
-            </div><!-- End Info Item -->
 
-            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-              <i class="bi bi-envelope flex-shrink-0"></i>
-              <div>
-                <h3>Email Us</h3>
-                <p>info@example.com</p>
-              </div>
-            </div><!-- End Info Item -->
 
-          </div>
-
-          <div class="col-lg-8">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
-
-                <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                </div>
-
-                <div class="col-md-6 ">
-                  <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                </div>
-
-                <div class="col-md-12">
-                  <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                </div>
-
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-
-                  <button type="submit">Send Message</button>
-                </div>
-
-              </div>
-            </form>
-          </div><!-- End Contact Form -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Contact Section -->
+    <!-- /Contact Section -->
   
   </main>
 
@@ -867,6 +850,7 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/custom.js"></script>
 
 
 
@@ -884,23 +868,185 @@
 
 
 <script>
-  const checkbox = document.getElementById('toggleReduced');
-  
-  if (localStorage.getItem('reduced') === 'true') {
-    document.documentElement.classList.add('reduced-motion');
-    checkbox.checked = true;
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('contact-form');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const firstName = document.getElementById('first-name');
+  const lastName = document.getElementById('last-name');
+  const email = document.getElementById('email');
+  const phone = document.getElementById('phone');
+  const address = document.getElementById('address');
+
+  function validateEmail(val) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
   }
-  checkbox.addEventListener('change', () => {
-    if (checkbox.checked) {
-      document.documentElement.classList.add('reduced-motion');
-      localStorage.setItem('reduced', 'true');
+
+  function validatePhone(val) {
+    return /^[+\d]?(?:[\d-.\s()]*)$/.test(val);
+  }
+
+  function checkRequired(el) {
+    return el.value.trim().length > 0;
+  }
+
+  function markInvalidField(el) {
+    el.classList.add('invalid');
+  }
+  function clearInvalidField(el) {
+    el.classList.remove('invalid');
+  }
+
+  function updateSubmitState() {
+    let ok = true;
+
+    if (!checkRequired(firstName)) ok = false;
+    if (!checkRequired(lastName)) ok = false;
+    if (!checkRequired(address)) ok = false;
+    if (!validateEmail(email.value.trim())) ok = false;
+    const phoneVal = phone.value.trim();
+    if (phoneVal !== '' && !validatePhone(phoneVal)) ok = false;
+
+    if (ok) {
+      submitBtn.classList.remove('invalid');
     } else {
-      document.documentElement.classList.remove('reduced-motion');
-      localStorage.setItem('reduced', 'false');
+      submitBtn.classList.add('invalid');
+    }
+    return ok;
+  }
+
+  [firstName, lastName, email, phone, address].forEach(el => {
+    el.addEventListener('input', updateSubmitState);
+  });
+
+  form.addEventListener('submit', function (e) {
+    let valid = true;
+
+    if (!checkRequired(firstName)) {
+      markInvalidField(firstName);
+      valid = false;
+    } else clearInvalidField(firstName);
+
+    if (!checkRequired(lastName)) {
+      markInvalidField(lastName);
+      valid = false;
+    } else clearInvalidField(lastName);
+
+    if (!checkRequired(address)) {
+      markInvalidField(address);
+      valid = false;
+    } else clearInvalidField(address);
+
+    if (!validateEmail(email.value.trim())) {
+      markInvalidField(email);
+      valid = false;
+    } else clearInvalidField(email);
+
+    const phoneVal = phone.value.trim();
+    if (phoneVal !== '' && !validatePhone(phoneVal)) {
+      markInvalidField(phone);
+      valid = false;
+    } else clearInvalidField(phone);
+
+    if (!valid) {
+      e.preventDefault();
+      submitBtn.classList.add('invalid');
     }
   });
+
+  updateSubmitState();
+});
 </script>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const popup = document.getElementById('popup-message');
+  const results = document.getElementById('form-results');
+  const avgRes = document.getElementById('average-result');
+
+  const f = {
+    firstName: document.getElementById('first-name'),
+    lastName:  document.getElementById('last-name'),
+    email:     document.getElementById('email'),
+    phone:     document.getElementById('phone'),
+    address:   document.getElementById('address'),
+    q1:        document.getElementById('q1'),
+    q1v:       document.getElementById('q1-val'),
+    q2:        document.getElementById('q2'),
+    q2v:       document.getElementById('q2-val'),
+    q3:        document.getElementById('q3'),
+    q3v:       document.getElementById('q3-val')
+  };
+
+  function isFilled(el) {
+    return el.value.trim().length > 0;
+  }
+  function isValidEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+  function isValidPhone(v) {
+    return /^[+\d]?(?:[\d-.\s()]*)$/.test(v);
+  }
+
+  function validateAll() {
+    let ok = true;
+    // privalomi
+    ['firstName','lastName','address'].forEach(k => {
+      if (!isFilled(f[k])) { f[k].classList.add('invalid'); ok = false; }
+      else f[k].classList.remove('invalid');
+    });
+    // email
+    const ev = f.email.value.trim();
+    if (!isValidEmail(ev)) { f.email.classList.add('invalid'); ok = false; }
+    else f.email.classList.remove('invalid');
+    // phone nebūtinai
+    const pv = f.phone.value.trim();
+    if (pv && !isValidPhone(pv)) { f.phone.classList.add('invalid'); ok = false; }
+    else f.phone.classList.remove('invalid');
+
+    submitBtn.disabled = !ok;
+    return ok;
+  }
+
+  // sliderių rodymas
+  ['q1','q2','q3'].forEach(k => {
+    f[k].addEventListener('input', () => {
+      f[k+'v'].textContent = f[k].value;
+    });
+  });
+
+  // atnaujinti submit
+  Object.values(f).forEach(el => {
+    el.addEventListener('input', validateAll);
+  });
+  validateAll();
+
+  form.addEventListener('submit', e => {
+    if (submitBtn.disabled) {
+      e.preventDefault();
+      return;
+    }
+    e.preventDefault();
+    // rodom rezultatus
+    results.innerHTML = `
+      <p>Vardas: ${f.firstName.value}</p>
+      <p>Pavardė: ${f.lastName.value}</p>
+      <p>El. paštas: ${f.email.value}</p>
+      <p>Tel. Numeris: ${f.phone.value || '-'}</p>
+      <p>Adresas: ${f.address.value}</p>
+      <p>Klausimas 1: ${f.q1.value}</p>
+      <p>Klausimas 2: ${f.q2.value}</p>
+      <p>Klausimas 3: ${f.q3.value}</p>`;
+    const avg = ((+f.q1.value + +f.q2.value + +f.q3.value)/3).toFixed(1);
+    avgRes.textContent = `Vidurkis: ${avg}`;
+
+    // popup
+    popup.classList.add('visible');
+    setTimeout(() => popup.classList.remove('visible'), 3000);
+  });
+});
+</script>
 
 </body>
 
